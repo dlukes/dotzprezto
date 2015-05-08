@@ -5,21 +5,52 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Customize to your needs...
+################################################################################
+################################################################################
+# OS X pre-customization
+
 SYSTEM=$(uname)
 
 if [[ $SYSTEM -eq "Darwin" ]]; then
-    # help for homebrew zsh
-    unalias run-help
-    autoload run-help
-    HELPDIR=/usr/local/share/zsh/help
-
     # get colors with homebrew GNU ls
     alias dircolors='gdircolors'
 fi
 
+if [[ $( which zsh ) == /usr/local/bin/zsh ]]; then
+    # help for homebrew zsh
+    unalias run-help
+    autoload run-help
+    HELPDIR=/usr/local/share/zsh/help
+fi
+
+################################################################################
+################################################################################
 # Source Prezto.
+
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+################################################################################
+################################################################################
+# Customize to your needs...
+
+################################################################################
+# Aliases
+
+# if vim is available, alias it to vi
+[ -x $(which vim) ] && alias vi='vim'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias et='TERM=xterm-256color emacsclient -ct -a ""'
+
+################################################################################
+# Functions
+
+function tth() {
+    /usr/bin/ssh -t $@ "tmux attach || tmux new"
+}
 

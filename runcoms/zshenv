@@ -9,3 +9,70 @@
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+################################################################################
+# Editors and pagers
+
+# some kind of pager settings (?):
+export LESS='-R'
+
+# emacs settings
+export EDITOR='emacsclient'
+export ALTERNATE_EDITOR=''
+
+################################################################################
+# Path, manpath, infopath
+
+# darwin-specific settings -- pandoc manpath, homebrew, MacPorts...
+if [[ $SYSTEM == "Darwin" ]]; then
+    MANPATH="$HOME/Library/Haskell/ghc-7.6.3/lib/pandoc-1.12.4.2/share/man:$MANPATH"
+    PATH="/usr/local/bin:$PATH"
+    # PATH="/opt/local/bin:$PATH"
+    # PATH="/opt/local/sbin:$PATH"
+    PATH="/usr/local/cwb-3.4.8/bin:$PATH"
+fi
+
+# TeXLive
+if [[ $SYSTEM == "Darwin" ]]; then
+    PATH="/usr/texbin/:$PATH"
+else
+    PATH="/usr/local/texlive/2014/bin/x86_64-linux:$PATH"
+    MANPATH="/usr/local/texlive/2014/texmf-dist/doc/man:$MANPATH"
+    INFOPATH="/usr/local/texlive/2014/texmf-dist/doc/info:$INFOPATH"
+fi
+
+PATH="$PATH:$HOME/local/bin"
+# PATH="$PATH:$HOME/htk/bin"
+# PATH="$PATH:$HOME/sbt/bin"
+# PATH="$PATH:$HOME/eclipse"
+PATH="$PATH:$HOME/.cabal/bin"
+# PATH="$PATH:$HOME/Library/Haskell/bin"
+# PATH="$PATH:$HOME/local/openfst-1.4.1/src/bin"
+PATH="/usr/local/heroku/bin:$PATH"
+
+# my own bin dir last, so that it takes absolute precedence
+PATH="$HOME/bin:$PATH"
+
+export PATH
+export MANPATH
+export INFOPATH
+
+################################################################################
+# Java
+
+# enable font anti-aliasing in JRE
+# export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Xmx2048m"
+
+################################################################################
+# Python
+
+export PYTHONPATH="$HOME/bin/python"
+export PYTHONSTARTUP="$HOME/.pythonstartup"
+
+################################################################################
+# Locale
+
+export LC_ALL="en_US.utf-8"
+export LANG="en_US.utf-8"
+
+export MAILTO="dafydd.lukes@gmail.com"
