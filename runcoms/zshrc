@@ -52,3 +52,6 @@ function tth() {
     /usr/bin/ssh -t $@ "tmux attach || tmux new"
 }
 
+################################################################################
+# non-prezto zsh settings
+zstyle ':completion:*' special-dirs true
