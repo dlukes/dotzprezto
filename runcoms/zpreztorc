@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 #
 # Sets Prezto options.
 #
@@ -29,28 +30,28 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 #   - fasd must come after completion
 #   - last three: syntax-highlighting, history-substring-search and prompt
 zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'gnu-utility' \
-  'utility' \
-  'completion' \
-  'fasd' \
-  'git' \
-  'haskell' \
-  'homebrew' \
-  'osx' \
-  'python' \
-  'rails' \
-  'rsync' \
-  'ruby' \
-  'archive' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'prompt'
+       'environment' \
+       'terminal' \
+       'editor' \
+       'history' \
+       'directory' \
+       'spectrum' \
+       'gnu-utility' \
+       'utility' \
+       'completion' \
+       'fasd' \
+       'git' \
+       'haskell' \
+       'homebrew' \
+       'osx' \
+       'python' \
+       'rails' \
+       'rsync' \
+       'ruby' \
+       'archive' \
+       'syntax-highlighting' \
+       'history-substring-search' \
+       'prompt'
 
 #
 # Autosuggestions
@@ -143,17 +144,17 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
 zstyle ':prezto:module:syntax-highlighting' highlighters \
-  'main' \
-  'brackets' \
-  'pattern' \
-  'cursor' \
-  'root'
+       'main' \
+       'brackets' \
+       'pattern' \
+       'cursor' \
+       'root'
 
 # Set syntax highlighting styles.
 zstyle ':prezto:module:syntax-highlighting' styles \
-  'builtin' 'bg=blue' \
-  'command' 'bg=blue' \
-  'function' 'bg=blue'
+       'builtin' 'bg=blue' \
+       'command' 'bg=blue' \
+       'function' 'bg=blue'
 
 #
 # Terminal

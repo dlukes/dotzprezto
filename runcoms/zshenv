@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 #
 # Defines environment variables.
 #
@@ -8,6 +9,16 @@
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+################################################################################
+# Server-only setup
+
+host=$( hostname )
+servers=(trnka trost yggdrasil)
+if [[ ${servers[(i)$host]} -le ${#servers} ]]; then
+  export JAVA_HOME="$HOME/.local/jre1.8.0_25"
+  export EXIST_HOME="$HOME/.local/exist"
 fi
 
 ################################################################################
@@ -25,19 +36,19 @@ export ALTERNATE_EDITOR=''
 
 # darwin-specific settings -- pandoc manpath, homebrew, MacPorts...
 if [[ "$OSTYPE" == darwin* ]]; then
-    PATH="/usr/local/bin:$PATH"
-    # PATH="/opt/local/bin:$PATH"
-    # PATH="/opt/local/sbin:$PATH"
-    PATH="/usr/local/cwb-3.4.8/bin:$PATH"
+  PATH="/usr/local/bin:$PATH"
+  # PATH="/opt/local/bin:$PATH"
+  # PATH="/opt/local/sbin:$PATH"
+  PATH="/usr/local/cwb-3.4.8/bin:$PATH"
 fi
 
 # TeXLive
 if [[ "$OSTYPE" == darwin* ]]; then
-    PATH="/usr/texbin/:$PATH"
+  PATH="/usr/texbin/:$PATH"
 else
-    PATH="/usr/local/texlive/2014/bin/x86_64-linux:$PATH"
-    MANPATH="/usr/local/texlive/2014/texmf-dist/doc/man:$MANPATH"
-    INFOPATH="/usr/local/texlive/2014/texmf-dist/doc/info:$INFOPATH"
+  PATH="/usr/local/texlive/2014/bin/x86_64-linux:$PATH"
+  MANPATH="/usr/local/texlive/2014/texmf-dist/doc/man:$MANPATH"
+  INFOPATH="/usr/local/texlive/2014/texmf-dist/doc/info:$INFOPATH"
 fi
 
 PATH="$PATH:$HOME/local/bin"
@@ -65,6 +76,11 @@ export INFOPATH
 
 export PYTHONPATH="$HOME/bin/python"
 export PYTHONSTARTUP="$HOME/.pythonstartup"
+
+################################################################################
+# ANNIS
+
+export ANNIS_HOME="$HOME/.local/annis"
 
 ################################################################################
 # Locale
