@@ -19,6 +19,9 @@ servers=(trnka trost yggdrasil)
 if [[ ${servers[(i)$host]} -le ${#servers} ]]; then
   export JAVA_HOME="$HOME/.local/jre1.8.0_25"
   export EXIST_HOME="$HOME/.local/exist"
+  export LD_LIBRARY_PATH="$HOME/.local/lib"
+  export LIBRARY_PATH="$HOME/.local/lib"
+  export CPATH="$HOME/.local/include/"
 fi
 
 ################################################################################
