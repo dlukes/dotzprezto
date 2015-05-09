@@ -21,7 +21,8 @@ if [[ ${servers[(i)$host]} -le ${#servers} ]]; then
   export EXIST_HOME="$HOME/.local/exist"
   export LD_LIBRARY_PATH="$HOME/.local/lib"
   export LIBRARY_PATH="$HOME/.local/lib"
-  export CPATH="$HOME/.local/include/"
+  export CPATH="$HOME/.local/include"
+  export PKG_CONFIG_PATH="$HOME/.local/share/pkgconfig"
 fi
 
 ################################################################################
