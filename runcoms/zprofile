@@ -44,8 +44,17 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  ${HOME}/bin
+  ${HOME}/.linuxbrew/bin
+  ${HOME}/.local/bin
+  /usr/local/heroku/bin
+  /usr/local/cwb-3.4.8/bin
   /usr/local/{bin,sbin}
   $path
+  # ${HOME}/htk/bin
+  # ${HOME}/sbt/bin
+  # ${HOME}/eclipse
+  # ${HOME}/local/openfst-1.4.1/src/bin"
 )
 
 #
