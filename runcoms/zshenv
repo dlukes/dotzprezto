@@ -12,6 +12,11 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
 fi
 
 ################################################################################
+# Reset PATH (so that PATH deduplication doesn't affect the required order)
+
+PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/games"
+
+################################################################################
 # Server-only setup
 
 host=$( hostname )
