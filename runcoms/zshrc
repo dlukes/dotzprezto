@@ -15,11 +15,18 @@ if [[ "$OSTYPE" == darwin* ]]; then
   alias dircolors='gdircolors'
 fi
 
-# set help if we're using the homebrew version of zsh
+# set help if we're using the system-wide homebrew version of zsh
 if [[ $( which zsh ) == /usr/local/bin/zsh ]]; then
   unalias run-help
   autoload run-help
   HELPDIR=/usr/local/share/zsh/help
+fi
+
+# set help if we're using the per-user linuxbrew version of zsh
+if [[ $( which zsh ) == "$HOME/.linuxbrew/bin/zsh" ]]; then
+  unalias run-help
+  autoload run-help
+  HELPDIR="$HOME/.linuxbrew/share/zsh/help"
 fi
 
 ################################################################################
