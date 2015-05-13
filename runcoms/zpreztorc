@@ -147,8 +147,9 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
        'main' \
        'brackets' \
        'pattern' \
-       'cursor' \
        'root'
+       # 'cursor' # highlighting the cursor makes it disappear when skipping
+       # words
 
 # Set syntax highlighting styles.
 zstyle ':prezto:module:syntax-highlighting' styles \
