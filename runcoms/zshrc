@@ -57,7 +57,11 @@ alias et='TERM=xterm-256color emacsclient -ct -a ""'
 # Functions
 
 function tth() {
-  /usr/bin/ssh -t $@ "tmux attach || TERM=xterm-256color tmux new"
+  if [[ "$OSTYPE" == darwin* ]]; then
+    /usr/bin/ssh -t $@ "tmux attach || TERM=xterm-256color tmux new"
+  else
+    /usr/bin/ssh -t $@ "tmux attach || tmux new"
+  fi
 }
 
 ################################################################################
