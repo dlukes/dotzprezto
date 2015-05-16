@@ -33,16 +33,6 @@ if [[ ${servers[(i)$host]} -le ${#servers} ]]; then
 fi
 
 ################################################################################
-# Editors and pagers
-
-# some kind of pager settings (?):
-export LESS='-R'
-
-# emacs settings
-export EDITOR='emacsclient'
-export ALTERNATE_EDITOR=''
-
-################################################################################
 # Path (just for TeX, the rest is in zprofile), manpath, infopath
 
 # TeXLive
