@@ -18,7 +18,16 @@ fi
 # Editors
 #
 
-export EDITOR='emacsclient -c -a ""'
+# prevent Emacs crash on Freya due to GTK+ bug
+export XLIB_SKIP_ARGB_VISUALS=1
+export EDITOR='emacsclient -c'
+export ALTERNATE_EDITOR=''
+
+# for proper colors in terminal when not inside tmux
+if [[ -z $TMUX ]]; then
+    export TERM=xterm-256color
+fi
+
 # export VISUAL='emacsclient -t -a ""'
 export PAGER='less'
 
