@@ -18,7 +18,7 @@ fi
 # Editors
 #
 
-export EDITOR='emacsclient -t -a ""'
+export EDITOR='emacsclient -c -a ""'
 # export VISUAL='emacsclient -t -a ""'
 export PAGER='less'
 
