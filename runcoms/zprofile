@@ -20,7 +20,7 @@ fi
 
 # prevent Emacs crash on Freya due to GTK+ bug
 export XLIB_SKIP_ARGB_VISUALS=1
-export EDITOR='emacsclient -c'
+export EDITOR='emacsclient -t'
 export ALTERNATE_EDITOR=''
 
 # for proper colors in terminal when not inside tmux
@@ -56,6 +56,7 @@ path=(
   ${HOME}/bin
   ${HOME}/.linuxbrew/bin
   ${HOME}/.local/bin
+  ${HOME}/.cabal/bin
   /usr/local/heroku/bin
   /usr/local/cwb-3.4.8/bin
   /usr/local/{bin,sbin}
