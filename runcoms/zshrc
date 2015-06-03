@@ -54,8 +54,18 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 ################################################################################
 # Functions
 
-function tth() {
+function tth {
   /usr/bin/ssh -t $@ "TERM=xterm-256color tmux attach || TERM=xterm-256color tmux new"
+}
+
+function trash {
+  trash="$HOME/.trash/"
+  mkdir "$trash"
+  if [[ "$OSTYPE" == darwin* ]]; then
+    mv $@ "$trash"
+  else
+    mv -t "$trash" $@
+  fi
 }
 
 ################################################################################
