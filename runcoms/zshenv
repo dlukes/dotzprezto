@@ -17,7 +17,7 @@ fi
 host=$( hostname )
 servers=(trnka trost yggdrasil)
 if [[ ${servers[(i)$host]} -le ${#servers} ]]; then
-  export JAVA_HOME="$HOME/.local/jre1.8.0_25"
+  export JAVA_HOME="$HOME/.local/jdk1.8.0_45"
   export EXIST_HOME="$HOME/.local/exist"
 
   # manual compilation without sudo
