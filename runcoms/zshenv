@@ -61,7 +61,7 @@ export PKG_CONFIG_PATH
 ################################################################################
 # Python
 
-export PYTHONPATH="$HOME/bin/python"
+export PYTHONPATH="$HOME/.local/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 
 ################################################################################
