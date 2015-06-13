@@ -51,12 +51,16 @@ typeset -gU cdpath fpath mailpath path
 #   $cdpath
 # )
 
+# Go settings
+export GOPATH="$HOME/src/go"
+
 # Set the list of directories that Zsh searches for programs.
 path=(
   ${HOME}/bin
   ${HOME}/.linuxbrew/bin
   ${HOME}/.local/bin
   ${HOME}/.cabal/bin
+  ${GOPATH}/bin
   /usr/local/heroku/bin
   /usr/local/cwb-3.4.8/bin
   /usr/local/{bin,sbin}
