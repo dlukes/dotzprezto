@@ -65,10 +65,8 @@ export PYTHONPATH="$HOME/.local/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 export WORKON_HOME="$HOME/.virtualenvs"
 export PROJECT_HOME="$HOME/src"
-export VIRTUALENVWRAPPER_SCRIPT="$HOME/bin/virtualenvwrapper.sh"
-# ensure virtualenvs are isolated from site packages
-# export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-source $HOME/bin/virtualenvwrapper_lazy.sh
+# export VIRTUALENVWRAPPER_SCRIPT="$HOME/bin/virtualenvwrapper.sh"
+# source $HOME/bin/virtualenvwrapper_lazy.sh
 
 ################################################################################
 # ANNIS
