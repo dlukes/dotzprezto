@@ -70,6 +70,10 @@ function trash {
   fi
 }
 
+function eeh {
+  /usr/bin/ssh -t $@ "TERM=xterm-256color emacsclient -t -a ''"
+}
+
 ################################################################################
 # non-prezto zsh settings
 zstyle ':completion:*' special-dirs true
