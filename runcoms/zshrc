@@ -44,8 +44,12 @@ fi
 ################################################################################
 # Aliases
 
-# if vim is available, alias it to vi
-[ -x $(which vim) ] && alias vi='vim'
+# if mvim/vim is available, alias it to vi
+if hash mvim 2>/dev/null; then
+  alias vi='mvim -v'
+elif hash vim 2>/dev/null; then
+  alias vi='vim'
+fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
