@@ -37,7 +37,7 @@ fi
 
 # TeXLive
 if [[ "$OSTYPE" == darwin* ]]; then
-  PATH="/usr/texbin/:$PATH"
+  PATH="/Library/TeX/texbin/:$PATH"
 else
   PATH="/usr/local/texlive/2014/bin/x86_64-linux:$PATH"
   MANPATH="/usr/local/texlive/2014/texmf-dist/doc/man:$MANPATH"
