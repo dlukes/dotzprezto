@@ -69,6 +69,11 @@ export PROJECT_HOME="$HOME/src"
 # source $HOME/bin/virtualenvwrapper_lazy.sh
 
 ################################################################################
+# Perl
+
+export PERL5LIB="$HOME/.local/lib/perl"
+
+################################################################################
 # ANNIS
 
 export ANNIS_HOME="$HOME/.local/annis"
