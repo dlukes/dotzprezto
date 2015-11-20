@@ -61,7 +61,7 @@ export PKG_CONFIG_PATH
 ################################################################################
 # Python
 
-export PYTHONPATH="$HOME/.local/lib/python"
+export PYTHONPATH="$HOME/.local/lib/python:$PYTHONPATH"
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 export WORKON_HOME="$HOME/.virtualenvs"
 export PROJECT_HOME="$HOME/src"
