@@ -81,7 +81,9 @@ function prompt_sorin_precmd {
   prompt_sorin_pwd
 
   # customized by dvl; for including virtualenv info in prompt
-  python-info
+  if (( $+functions[python-info] )); then
+    python-info
+  fi
 
   # Define prompts.
   # customized by dvl (setting it below does not work)
