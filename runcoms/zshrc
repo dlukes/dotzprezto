@@ -61,6 +61,8 @@ alias crontab='EDITOR=vi crontab'
 
 alias iperl='rlwrap -A -S "iperl> " perl -MData::Printer -wnE '\''BEGIN { say "# Use `p @<arrayOrList>` or `p %<hashTable>` to print arrays/lists/hashtables; e.g.: `p %ENV`"; } say eval()//$@'\'
 
+alias nixwitch="sudo nixos-rebuild switch -I nixpkgs=$HOME/src/nixpkgs"
+
 ################################################################################
 # Functions
 
