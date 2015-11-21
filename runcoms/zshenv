@@ -83,6 +83,11 @@ export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
 export ANNIS_HOME="$HOME/.local/annis"
 
 ################################################################################
+# Nix
+
+export NIX_PATH=nixpkgs=$HOME/src/nixkpgs
+
+################################################################################
 # Locale
 
 export LC_ALL="en_US.utf-8"
