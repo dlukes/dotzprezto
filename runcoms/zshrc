@@ -44,9 +44,10 @@ fi
 ################################################################################
 # Aliases
 
-# if mvim/vim is available, alias it to vi
+# if mvim/vim is available, alias it to vi and vim
 if hash mvim 2>/dev/null; then
   alias vi='mvim -v'
+  alias vim='mvim -v'
 elif hash vim 2>/dev/null; then
   alias vi='vim'
 fi
