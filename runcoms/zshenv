@@ -63,7 +63,7 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Xmx2048m"
 ################################################################################
 # Python
 
-export PYTHONPATH="$HOME/.local/lib/python:/run/current-system/sw/lib/python3.4/site-packages:$PYTHONPATH"
+export PYTHONPATH="$HOME/.local/lib/python:$HOME/.nix-profile/lib/python3.4/site-packages:/run/current-system/sw/lib/python3.4/site-packages:$PYTHONPATH"
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 export WORKON_HOME="$HOME/.virtualenvs"
 export PROJECT_HOME="$HOME/src"
