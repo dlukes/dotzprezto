@@ -18,8 +18,6 @@ fi
 # Editors
 #
 
-# prevent Emacs crash on Freya due to GTK+ bug
-export XLIB_SKIP_ARGB_VISUALS=1
 export EDITOR='emacsclient -t'
 export ALTERNATE_EDITOR=''
 
