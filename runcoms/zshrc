@@ -87,11 +87,14 @@ function eeh {
 
 function bat {
   typeset -A opts
+  # delimiter character
   opts[-d]='	'
-  zparseopts -D -E -K -A opts d:
+  # less scroll width
+  opts[-s]=3
+  zparseopts -D -E -K -A opts d: s:
   cat $1 - |
     column -ts"$opts[-d]" $1 |
-    less -NS -\#3
+    less -NS -\#$opts[-s]
 }
 
 ################################################################################
