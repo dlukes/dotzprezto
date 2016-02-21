@@ -127,6 +127,6 @@ case "$TERM" in
 esac
 
 # change to the actual home dir if necessary to get a shorter prompt
-if [[ $PWD == '/home/lukes' ]]; then
-  cd
-fi
+[[ $PWD == '/home/lukes' ]] && cd
+
+[[ -e ${HOME}/.iterm2_shell_integration.zsh ]] && source ${HOME}/.iterm2_shell_integration.zsh
