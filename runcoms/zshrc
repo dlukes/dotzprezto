@@ -115,7 +115,18 @@ zstyle ':completion:*' special-dirs true
 case "$TERM" in
   screen*)
     precmd () {
-      print -Pn "\033k$(hostname -s)\033\\"
+      local pwd="${PWD/#$HOME/~}"
+
+      if [[ "$pwd" == (#m)[/~] ]]; then
+        _tmux_pwd="$MATCH"
+        unset MATCH
+      else
+        _tmux_pwd="${${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}//\%/%%}/${${pwd:t}//\%/%%}"
+      fi
+
+      # with hostname -- too verbose most of the time
+      # print -Pn "\033k$(hostname -s): $_tmux_pwd\033\\"
+      print -Pn "\033k$_tmux_pwd\033\\"
     }
     ;;
 esac
