@@ -109,3 +109,13 @@ function bat {
 ################################################################################
 # non-prezto zsh settings
 zstyle ':completion:*' special-dirs true
+
+################################################################################
+# tmux window title with hostname
+case "$TERM" in
+  screen*)
+    precmd () {
+      print -Pn "\033k$(hostname -s)\033\\"
+    }
+    ;;
+esac
