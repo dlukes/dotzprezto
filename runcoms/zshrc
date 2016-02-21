@@ -70,7 +70,8 @@ alias nice="nice -n19 ionice -c3"
 # Functions
 
 function tth {
-  ssh -t $@ "tmux attach || tmux new"
+  # use a fancy tmux modeline (breaks iTerm2 integration in cch())
+  ssh -t $@ "tmux -f ~/.tmux.fancy attach || tmux -f ~/.tmux.fancy new"
 }
 
 function eeh {
@@ -78,7 +79,9 @@ function eeh {
 }
 
 function cch {
-  ssh -t $@ "tmux -CC attach || tmux -f ~/.tmux.iterm -CC"
+  # if no session is running, attach falls back to any sessions defined in
+  # ~/.tmux.conf (a line with `new` suffices)
+  ssh -t $@ "tmux -CC attach"
 }
 
 function trash {
