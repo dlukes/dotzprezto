@@ -7,7 +7,6 @@
 #
 
 ################################################################################
-################################################################################
 # OS X pre-customization
 
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -30,16 +29,11 @@ if [[ $( which zsh ) == "$HOME/.linuxbrew/bin/zsh" ]]; then
 fi
 
 ################################################################################
-################################################################################
 # Source Prezto.
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-################################################################################
-################################################################################
-# Customize to your needs...
 
 ################################################################################
 # Aliases
@@ -107,11 +101,12 @@ function bat {
 }
 
 ################################################################################
+# Miscellaneous
+
 # non-prezto zsh settings
 zstyle ':completion:*' special-dirs true
 
-################################################################################
-# tmux window title with hostname
+# tmux window title with current dir, possibly hostname etc.
 case "$TERM" in
   screen*)
     precmd () {
@@ -130,3 +125,8 @@ case "$TERM" in
     }
     ;;
 esac
+
+# change to the actual home dir if necessary to get a shorter prompt
+if [[ $PWD == '/home/lukes' ]]; then
+  cd
+fi
