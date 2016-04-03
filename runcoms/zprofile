@@ -52,12 +52,16 @@ typeset -gU cdpath fpath mailpath path
 # Go settings
 export GOPATH="$HOME/src/go"
 
+# Rust settings
+export RUST_SRC_PATH="$HOME/src/rust/src"
+
 # Set the list of directories that Zsh searches for programs.
 path=(
   ${HOME}/bin
   ${HOME}/.linuxbrew/bin
   ${HOME}/.local/bin
   ${HOME}/.cabal/bin
+  ${HOME}/.cargo/bin
   ${GOPATH}/bin
   /usr/local/heroku/bin
   /usr/local/cwb-3.4.8/bin
