@@ -63,7 +63,7 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Xmx2048m"
 ################################################################################
 # Python
 
-python=$( basename $( readlink -f $( which python3 ) ) )
+python=$( basename $( perl -CSAD -MCwd=abs_path -e 'print abs_path shift' `which python3` ) )
 export PYTHONPATH="$HOME/.local/lib/python:$HOME/.nix-profile/lib/$python/site-packages:/run/current-system/sw/lib/$python/site-packages:$PYTHONPATH"
 # export PYTHONSTARTUP="$HOME/.pythonstartup"
 export WORKON_HOME="$HOME/.virtualenvs"
