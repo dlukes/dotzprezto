@@ -58,6 +58,8 @@ alias nixwitch="sudo nixos-rebuild switch -I nixpkgs=$HOME/src/nixpkgs"
 
 alias nice="nice -n19 ionice -c3"
 
+alias mysql="nocorrect mysql --pager=less"
+
 ################################################################################
 # Functions
 
