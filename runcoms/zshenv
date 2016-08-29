@@ -83,7 +83,7 @@ export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
 ################################################################################
 # ANNIS
 
-export ANNIS_HOME="$HOME/.local/annis"
+export ANNIS_HOME="/opt/annis/service"
 
 ################################################################################
 # Nix
