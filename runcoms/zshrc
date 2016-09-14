@@ -100,6 +100,23 @@ function bat {
     less -NS -\#$opts[-s]
 }
 
+function sdiff {
+  if [[ $# -ne 2 ]]; then
+    echo >&2 "Usage: sdiff file1 file2"
+    return 1
+  fi
+  file1=$(mktemp)
+  file2=$(mktemp)
+  setopt NO_MONITOR
+  sort $1 -o $file1 &
+  sort1=$!
+  sort $2 -o $file2 &
+  sort2=$!
+  wait $sort1 $sort2
+  setopt MONITOR
+  diff $file1 $file2
+}
+
 ################################################################################
 # Miscellaneous
 
