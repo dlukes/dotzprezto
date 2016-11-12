@@ -39,10 +39,10 @@ fi
 # Aliases
 
 # if mvim/vim is available, alias it to vi and vim
-if hash mvim 2>/dev/null; then
+if (( $+commands[mvim] )); then
   alias vi='mvim -v -Nnu NONE'
   alias vim='mvim -v'
-elif hash vim 2>/dev/null; then
+elif (( $+commands[vim] )); then
   alias vi='vim -Nnu NONE'
 fi
 
