@@ -118,6 +118,16 @@ function sdiff {
   diff $file1 $file2
 }
 
+function czech {
+  setfont Lat2-Terminus16 -m 8859-2
+  sudo loadkeys cz-qwerty
+}
+
+function english {
+  setfont Lat2-Terminus16 -m 8859-2
+  sudo loadkeys us
+}
+
 ################################################################################
 # Miscellaneous
 
