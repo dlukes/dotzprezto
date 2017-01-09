@@ -58,7 +58,7 @@ export PKG_CONFIG_PATH
 # Java
 
 # enable font anti-aliasing in JRE
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Xmx2048m"
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Xmx2048m"
 
 ################################################################################
 # Python
