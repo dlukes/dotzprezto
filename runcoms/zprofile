@@ -53,7 +53,7 @@ typeset -gU cdpath fpath mailpath path
 export GOPATH="$HOME/src/go"
 
 # Rust settings
-export RUST_SRC_PATH="$HOME/src/rust/src"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
