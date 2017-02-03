@@ -18,8 +18,8 @@ fi
 # Editors
 #
 
-export EDITOR='emacsclient -t'
-export ALTERNATE_EDITOR=''
+export EDITOR=vim
+export ALTERNATE_EDITOR=nano
 
 # for proper colors in terminal when not inside tmux
 if [[ -z $TMUX ]]; then
