@@ -65,7 +65,7 @@ path=(
 export GOPATH="$HOME/src/go"
 
 # Rust settings
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+command -v rustc &>/dev/null && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 #
 # Less
