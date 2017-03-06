@@ -62,6 +62,9 @@ alias nice="nice -n19 ionice -c3"
 
 alias mysql="nocorrect mysql --pager=less"
 
+alias ll="ls -lrthF"
+alias la="ls -AlrthF"
+
 ################################################################################
 # Functions
 
