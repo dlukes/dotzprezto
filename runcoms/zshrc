@@ -133,6 +133,14 @@ function english {
   sudo loadkeys us
 }
 
+function o {
+  if (( $# == 0 )); then
+    open .
+  else
+    open $@
+  fi
+}
+
 ################################################################################
 # Miscellaneous
 

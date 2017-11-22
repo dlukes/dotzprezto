@@ -112,13 +112,13 @@ fi
 
 # Mac OS X Everywhere
 if [[ "$OSTYPE" == darwin* ]]; then
-  alias o='open'
+  alias open='open'
 elif [[ "$OSTYPE" == cygwin* ]]; then
-  alias o='cygstart'
+  alias open='cygstart'
   alias pbcopy='tee > /dev/clipboard'
   alias pbpaste='cat /dev/clipboard'
 else
-  alias o='xdg-open'
+  alias open='xdg-open'
 
   if (( $+commands[xclip] )); then
     alias pbcopy='xclip -selection clipboard -in'
