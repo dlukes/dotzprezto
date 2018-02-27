@@ -141,6 +141,53 @@ function o {
   fi
 }
 
+# A convenience wrapper around pandoc which auto-detects bibliography files,
+# templates and reference docs to use.
+function pandoc {
+  # parse options to determine output filename; we ignore the possibility of the
+  # key and value being separated by =
+  zparseopts -E -a opts o: -output:
+  # the first one specified wins (the first element of opts is the key, the
+  # second is the first value)
+  local out=${opts[2]}
+  local ext=${out:e}
+  # look for custom template
+  local tmpl=$PWD/$ext.tmpl
+  local -a tmpl_opt
+  if [[ -r $tmpl ]]; then
+    tmpl_opt=( --template $tmpl )
+  fi
+  # look for custom reference doc
+  local ref=$PWD/ref.$ext
+  local -a ref_opt
+  if [[ -r $ref ]]; then
+    ref_opt=( --reference-doc $ref )
+  fi
+
+  >&2 echo "RUNNING THE FOLLOWING COMMAND LINE:"
+  >&2 echo "pandoc $@"
+  if [[ $#tmpl_opt -gt 0 ]]; then
+    >&2 echo "  $tmpl_opt"
+  fi
+  if [[ $#ref_opt -gt 0 ]]; then
+    >&2 echo "  $ref_opt"
+  fi
+  # get default bib files
+  local -a bibs
+  for bib in ~/.files/texmf/bibtex/bib/local/*.bib; do
+    >&2 echo "  --bibliography $bib"
+    bibs+=( --bibliography $bib )
+  done
+  >&2 echo "HINTS:"
+  >&2 echo "  - specify template in $tmpl"
+  >&2 echo "  - specify reference doc in $ref"
+  >&2 echo '  - dump the default template for a FORMAT with `pandoc -D FORMAT`'
+  >&2 echo '  - list available output formats with `pandoc --list-output-formats`'
+  >&2 echo "  - docx has no template, it can only be customized through --reference-doc"
+
+  command pandoc $@ $tmpl_opt $ref_opt $bibs
+}
+
 ################################################################################
 # Miscellaneous
 
