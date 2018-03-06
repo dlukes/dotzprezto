@@ -55,6 +55,7 @@ export GOPATH="$HOME/src/go"
 # Set the list of directories that Zsh searches for programs.
 path=(
   ${HOME}/bin
+  ${HOME}/.files/bin
   ${HOME}/.linuxbrew/bin
   ${HOME}/.local/bin
   ${HOME}/.cabal/bin
