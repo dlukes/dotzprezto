@@ -141,6 +141,47 @@ function o {
   fi
 }
 
+# `ldd` and `ldd -v` are unsafe because they execute parts of the binary they're
+# examining for deps. They also have not so nice output. The following two
+# functions improve on both those fronts. They were borrowed from here:
+# https://www.reddit.com/r/rust/comments/56x4r3/are_golang_binaries_more_portable_than_binaries/d8neaaj/
+
+# List non-transitive deps of dynamically linked ELF file
+function deplibs() {
+  readelf -d "$1" | grep --line-buffered NEEDED | cut -d [ -f 2 | cut -d ] -f 1
+}
+
+# List all deps of dynamically linked ELF file
+function deplibs-tree() {
+  local -A SEEN_LIBS
+
+  function deplibs-recursive() {
+    local LIB="$1" PARENT="$2"
+
+    if [[ -z "$PARENT" ]]; then
+      SEEN_LIBS[$LIB]="    "
+      echo -n "${LIB}"
+    else
+      echo -n "${SEEN_LIBS[$PARENT]}"
+      echo -n "${LIB}"
+      if [[ -n "${SEEN_LIBS[$LIB]}" ]]; then
+        echo " (already seen)"
+        return
+      else
+        SEEN_LIBS[$LIB]="    ${SEEN_LIBS[$PARENT]}"
+      fi
+    fi
+
+    echo ""
+
+    for CHILD in $(deplibs "$(cc -print-file-name="$LIB")"); do
+      deplibs-recursive "$CHILD" "$LIB"
+    done
+  }
+
+  deplibs-recursive "$1"
+}
+
 ################################################################################
 # Miscellaneous
 
