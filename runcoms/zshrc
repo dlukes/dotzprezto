@@ -39,11 +39,10 @@ fi
 # Aliases
 
 # if mvim/vim is available, alias it to vi and vim
-if (( $+commands[mvim] )); then
-  alias vi='mvim -v -Nnu NONE'
-  alias vim='mvim -v'
-elif (( $+commands[vim] )); then
-  alias vi='vim -Nnu NONE'
+if (( $+commands[nvim] )); then
+  alias vi=nvim
+else
+  alias vi=vim
 fi
 
 alias ec='emacsclient -ca ""'

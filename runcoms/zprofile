@@ -18,7 +18,7 @@ fi
 # Editors
 #
 
-export EDITOR=vim
+export EDITOR=vi
 export ALTERNATE_EDITOR=nano
 
 # for proper colors in terminal when not inside tmux
