@@ -96,4 +96,9 @@ export ANNIS_HOME="/opt/annis/service"
 export LC_ALL="en_US.utf-8"
 export LANG="en_US.utf-8"
 
+################################################################################
+# fzf (fuzzy finder, see https://github.com/junegunn/fzf)
+export FZF_DEFAULT_COMMAND='find -name .git -prune -o -print'
+export FZF_DEFAULT_OPTS="--preview 'head -100 {}'"
+
 export MAILTO="dafydd.lukes@gmail.com"
