@@ -45,6 +45,8 @@ else
   alias vi=vim
 fi
 
+alias fzf="fzf --preview 'head -100 {}'"
+
 alias ec='emacsclient -ca ""'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -62,7 +64,7 @@ alias nice="nice -n19 ionice -c3"
 alias mysql="nocorrect mysql --pager=less"
 
 alias ll="ls -lrthF"
-alias la="ls -AlrthF"
+alias la="ll -A"
 
 ################################################################################
 # Functions

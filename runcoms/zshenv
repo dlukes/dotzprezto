@@ -99,6 +99,6 @@ export LANG="en_US.utf-8"
 ################################################################################
 # fzf (fuzzy finder, see https://github.com/junegunn/fzf)
 export FZF_DEFAULT_COMMAND='find -name .git -prune -o -print'
-export FZF_DEFAULT_OPTS="--preview 'head -100 {}'"
+export FZF_DEFAULT_OPTS="--bind up:preview-up,down:preview-down"
 
 export MAILTO="dafydd.lukes@gmail.com"
