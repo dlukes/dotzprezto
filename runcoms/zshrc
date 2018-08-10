@@ -148,12 +148,12 @@ function o {
 # https://www.reddit.com/r/rust/comments/56x4r3/are_golang_binaries_more_portable_than_binaries/d8neaaj/
 
 # List non-transitive deps of dynamically linked ELF file
-function deplibs() {
+function deplibs {
   readelf -d "$1" | grep --line-buffered NEEDED | cut -d [ -f 2 | cut -d ] -f 1
 }
 
 # List all deps of dynamically linked ELF file
-function deplibs-tree() {
+function deplibs-tree {
   local -A SEEN_LIBS
 
   function deplibs-recursive() {
@@ -182,6 +182,19 @@ function deplibs-tree() {
 
   deplibs-recursive "$1"
 }
+
+function fd-fzf-open {
+  local prog=$1
+  local -a fd_opts
+  fd_opts=($@[2,-1])
+  local fpath=$(fd $fd_opts | fzf)
+  if [[ ! -z $fpath ]]; then
+    $prog $fpath
+  fi
+}
+alias vif='fd-fzf-open vi --type file'
+alias vih='fd-fzf-open vi --type file --follow --hidden --exclude .git'
+alias of='fd-fzf-open o --type file'
 
 ################################################################################
 # Miscellaneous
