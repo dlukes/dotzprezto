@@ -185,16 +185,22 @@ function deplibs-tree {
 
 function fd-fzf-open {
   local prog=$1
-  local -a fd_opts
-  fd_opts=($@[2,-1])
-  local fpath=$(fd $fd_opts | fzf)
-  if [[ ! -z $fpath ]]; then
-    $prog $fpath
+  local -a fd_opts prog_opts fpaths
+  local last_fd_opt_idx=$@[(i)--]
+  fd_opts=($@[2,last_fd_opt_idx-1])
+  prog_opts=($@[last_fd_opt_idx+1,-1])
+  local fpaths=($(fd $fd_opts | fzf -m))
+  if [[ ! -z $fpaths ]]; then
+    local -a cmd
+    cmd=($prog $prog_opts $fpaths)
+    # add command to history
+    print -s $cmd
+    $cmd
   fi
 }
-alias vif='fd-fzf-open vi --type file'
-alias vih='fd-fzf-open vi --type file --follow --hidden --exclude .git'
-alias of='fd-fzf-open o --type file'
+alias vif='fd-fzf-open vi --type file --'
+alias via='fd-fzf-open vi --type file --follow --hidden --exclude .git --'
+alias of='fd-fzf-open o --type file --'
 
 ################################################################################
 # Miscellaneous
