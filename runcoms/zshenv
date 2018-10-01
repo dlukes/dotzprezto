@@ -12,13 +12,11 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
 fi
 
 ################################################################################
-# Server-only setup
+# Setup for CNC servers
 
-host=$( hostname )
-servers=(trnka yggdrasil)
-if [[ ${servers[(i)$host]} -le ${#servers} ]]; then
+if [[ -d /cnk ]]; then
   # change HOME to the real location for shorter paths when spawning new shells
-  export HOME="/cnk/users/home/lukes"
+  export HOME=$( readlink -f $HOME )
   export JAVA_HOME="$HOME/.local/jdk1.8.0_45"
   export EXIST_HOME="$HOME/.local/exist"
 
