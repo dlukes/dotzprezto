@@ -208,7 +208,9 @@ alias of='fd-fzf-open o --type file --'
 # non-prezto zsh settings
 zstyle ':completion:*' special-dirs true
 
-# tmux window title with current dir, possibly hostname etc.
+# tmux pane title with current dir (the window title is set according to
+# the pane title of the active pane, cf. .tmux.conf); search for #T and
+# NAMES AND TITLES in man tmux for more info
 case "$TERM" in
   screen*)
     precmd () {
@@ -221,9 +223,7 @@ case "$TERM" in
         _tmux_pwd="${${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}//\%/%%}/${${pwd:t}//\%/%%}"
       fi
 
-      # with hostname -- too verbose most of the time
-      # print -Pn "\033k$(hostname -s): $_tmux_pwd\033\\"
-      print -Pn "\033k$_tmux_pwd\033\\"
+      printf '\033]2;'$_tmux_pwd'\033\\'
     }
     ;;
 esac
