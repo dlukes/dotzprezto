@@ -15,7 +15,7 @@ fi
 # Server-only setup
 
 host=$( hostname )
-servers=(trnka trost yggdrasil)
+servers=(trnka yggdrasil)
 if [[ ${servers[(i)$host]} -le ${#servers} ]]; then
   # change HOME to the real location for shorter paths when spawning new shells
   export HOME="/cnk/users/home/lukes"
