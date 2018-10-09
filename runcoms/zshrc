@@ -201,6 +201,7 @@ function fd-fzf-open {
 alias vif='fd-fzf-open vi --type file --'
 alias via='fd-fzf-open vi --type file --follow --hidden --exclude .git --'
 alias of='fd-fzf-open o --type file --'
+alias cf='fd-fzf-open cd'
 
 ################################################################################
 # Miscellaneous
