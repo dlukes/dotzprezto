@@ -55,8 +55,6 @@ alias ec='emacsclient -ca ""'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias crontab='EDITOR=vi crontab'
-
 alias iperl='rlwrap -A -S "iperl> " perl -MData::Printer -wnE '\''BEGIN { say "# Use `p @<arrayOrList>` or `p %<hashTable>` to print arrays/lists/hashtables; e.g.: `p %ENV`"; } say eval()//$@'\'
 
 alias nixwitch="sudo nixos-rebuild switch -I nixpkgs=$HOME/src/nixpkgs"
@@ -65,8 +63,16 @@ alias nice="nice -n19 ionice -c3"
 
 alias mysql="nocorrect mysql --pager=less"
 
-alias ll="ls -lrthF"
-alias la="ll -A"
+if (( $+commands[exa] )); then
+  alias ls=exa
+  alias l=exa
+  alias ll='exa -lg --group-directories-first -s newest --git'
+  alias la='ll -a'
+  alias lg='la --git-ignore -I .git'
+else
+  alias ll='ls -lrthF'
+  alias la='ll -A'
+fi
 
 ################################################################################
 # Functions
@@ -186,7 +192,11 @@ function deplibs-tree {
 }
 
 function fd-fzf-open {
-  local prog=$1
+  # make sure potential aliases are resolved
+  local prog=$aliases[$1]
+  if [[ -z $prog ]]; then
+    prog=$1
+  fi
   local -a fd_opts prog_opts fpaths
   local last_fd_opt_idx=$@[(i)--]
   fd_opts=($@[2,last_fd_opt_idx-1])
