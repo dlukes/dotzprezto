@@ -38,12 +38,14 @@ fi
 ################################################################################
 # Aliases
 
-# if mvim/vim is available, alias it to vi and vim
 if (( $+commands[nvim] )); then
   alias vi=nvim
+  export VISUAL=nvim
 else
   alias vi=vim
+  export VISUAL=vim
 fi
+export EDITOR=$VISUAL
 
 alias fzf="fzf --preview 'head -100 {}'"
 

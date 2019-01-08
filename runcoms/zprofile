@@ -14,13 +14,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-#
-# Editors
-#
-
-export EDITOR=vi
-export ALTERNATE_EDITOR=nano
-
 # for proper colors in terminal when not inside tmux
 if [[ -z $TMUX ]]; then
     export TERM=xterm-256color
