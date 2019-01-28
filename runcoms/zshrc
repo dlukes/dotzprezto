@@ -102,18 +102,6 @@ function trash {
   fi
 }
 
-function bat {
-  typeset -A opts
-  # delimiter character
-  opts[-d]='	'
-  # less scroll width
-  opts[-s]=3
-  zparseopts -D -E -K -A opts d: s:
-  cat $1 - |
-    column -ts"$opts[-d]" $1 |
-    less -NS -\#$opts[-s]
-}
-
 function sdiff {
   if [[ $# -ne 2 ]]; then
     echo >&2 "Usage: sdiff file1 file2"
