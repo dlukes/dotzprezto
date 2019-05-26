@@ -61,13 +61,14 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Xmx2
 ################################################################################
 # Python
 
-python=$( basename $( perl -CSAD -MCwd=abs_path -e 'print abs_path shift' `which python3` ) )
-export PYTHONPATH="$HOME/.local/lib/python:$HOME/.nix-profile/lib/$python/site-packages:/run/current-system/sw/lib/$python/site-packages:$PYTHONPATH"
+# python=$( basename $( perl -CSAD -MCwd=abs_path -e 'print abs_path shift' `which python3` ) )
+# export PYTHONPATH="$HOME/.local/lib/python:$HOME/.nix-profile/lib/$python/site-packages:/run/current-system/sw/lib/$python/site-packages:$PYTHONPATH"
 # export PYTHONSTARTUP="$HOME/.pythonstartup"
-export WORKON_HOME="$HOME/.virtualenvs"
-export PROJECT_HOME="$HOME/src"
+# export WORKON_HOME="$HOME/.virtualenvs"
+# export PROJECT_HOME="$HOME/src"
 # export VIRTUALENVWRAPPER_SCRIPT="$HOME/bin/virtualenvwrapper.sh"
 # source $HOME/bin/virtualenvwrapper_lazy.sh
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 ################################################################################
 # Perl

@@ -49,11 +49,12 @@ export GOPATH="$HOME/src/go"
 path=(
   ${HOME}/bin
   ${HOME}/.files/bin
+  ${HOME}/.cargo/bin
+  ${HOME}/.poetry/bin
+  ${HOME}/.cabal/bin
+  ${GOPATH}/bin
   ${HOME}/.linuxbrew/bin
   ${HOME}/.local/bin
-  ${HOME}/.cabal/bin
-  ${HOME}/.cargo/bin
-  ${GOPATH}/bin
   /usr/local/{bin,sbin}
   $path
 )
@@ -86,5 +87,3 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
-
-export PATH="$HOME/.cargo/bin:$PATH"
