@@ -185,14 +185,17 @@ function fd-fzf-open {
   if [[ -z $prog ]]; then
     prog=$1
   fi
-  local -a fd_opts prog_opts fpaths
+  local -a fd_opts prog_opts
   local last_fd_opt_idx=$@[(i)--]
   fd_opts=($@[2,last_fd_opt_idx-1])
   prog_opts=($@[last_fd_opt_idx+1,-1])
-  local fpaths=($(fd $fd_opts | fzf -m))
+  local fpaths
+  fpaths=$(fd $fd_opts | fzf -m)
   if [[ ! -z $fpaths ]]; then
     local -a cmd
-    cmd=($prog $prog_opts $fpaths)
+    # split prog and fpaths into arrays; remove nocorrect from prog if there,
+    # because otherwise, zsh complains about command not found (???)
+    cmd=(${(s: :)prog#nocorrect} $prog_opts ${(s:\n:)fpaths})
     # add command to history
     print -s $cmd
     $cmd
