@@ -68,6 +68,7 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Xmx2
 # export VIRTUALENVWRAPPER_SCRIPT="$HOME/bin/virtualenvwrapper.sh"
 # source $HOME/bin/virtualenvwrapper_lazy.sh
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export PYENV_ROOT=$HOME/.local/pyenv
 
 ################################################################################
 # Perl
