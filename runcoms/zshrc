@@ -48,18 +48,7 @@ fi
 # Functions
 
 function tth {
-  # use a fancy tmux modeline (breaks iTerm2 integration in cch())
   ssh -t $@ "tmux new -AD -s default"
-}
-
-function eeh {
-  ssh -t $@ "emacsclient -t -a ''"
-}
-
-function cch {
-  # if no session is running, attach falls back to any sessions defined in
-  # ~/.tmux.conf (a line with `new` suffices)
-  ssh -t $@ "tmux -CC new -AD -s default"
 }
 
 function trash {
@@ -72,6 +61,7 @@ function trash {
   fi
 }
 
+# sort, then diff two files
 function sdiff {
   if [[ $# -ne 2 ]]; then
     echo >&2 "Usage: sdiff file1 file2"
@@ -193,9 +183,6 @@ case "$TERM" in
     }
     ;;
 esac
-
-# change to the actual home dir if necessary to get a shorter prompt
-[[ $PWD == '/home/lukes' ]] && cd
 
 [[ -e ${HOME}/.iterm2_shell_integration.zsh ]] && source ${HOME}/.iterm2_shell_integration.zsh
 
